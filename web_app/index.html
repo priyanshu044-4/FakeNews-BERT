@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Grok-style Fake News Verifier</title>
+  <style>
+    body {
+      background-color: #0e0e0e;
+      color: #ffffff;
+      font-family: 'Segoe UI', sans-serif;
+      padding: 20px;
+    }
+    textarea, button {
+      width: 100%;
+      padding: 10px;
+      font-size: 1rem;
+      margin-top: 10px;
+      border-radius: 8px;
+    }
+    .result {
+      margin-top: 20px;
+      background-color: #1e1e1e;
+      padding: 15px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,255,100,0.2);
+    }
+  </style>
+</head>
+<body>
+  <h1>🧠 Grok-style Fake News Verifier</h1>
+  <form method="post">
+    <textarea name="news" rows="8" placeholder="Paste your article here...">{{ news_text }}</textarea>
+    <button type="submit">Check News</button>
+  </form>
+
+  {% if prediction %}
+    <div class="result">
+      <h2>{{ prediction }} (Confidence: {{ confidence }}%)</h2>
+      <p><strong>AI Reasoning:</strong></p>
+      <p>{{ reasoning }}</p>
+    </div>
+  {% endif %}
+</body>
+</html>
